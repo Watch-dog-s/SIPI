@@ -13,7 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.electronic_diary.navigation.navigation
-import com.example.electronic_diary.screens.Authorization
+import com.example.electronic_diary.screens.Authorization_Screen
+import com.example.electronic_diary.screens.MainScreen
 import com.example.electronic_diary.ui.theme.Electronic_diaryTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,9 +24,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             Electronic_diaryTheme {
                 val navController = rememberNavController()
-                navigation(navController)
+                MainScreen(navController)
                 }
             }
+
+
         }
 }
 
