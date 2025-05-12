@@ -53,7 +53,7 @@ fun BottomBar(navController: NavController) {
                                 modifier = Modifier.size(60.dp)
                             )
                         }
-                        IconButton(onClick = { navController.navigate(Routes.ANALYSIS) }) {
+                        IconButton(onClick = { navController.navigate(Routes.MARKS) }) {
                             Icon(
                                 painter = painterResource(id = R.drawable.analysis),
                                 contentDescription = "",

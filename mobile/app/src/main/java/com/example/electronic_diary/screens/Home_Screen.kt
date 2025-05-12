@@ -87,7 +87,8 @@ fun Home_Screen(navController: NavHostController) {
 
             notification(n)
             notification(n)
-            Text(text = "fewnfnehw")
+            Text(text = "День рождения у ученика ......")
+            Text(text = "Турнир по Доте ......")
 
 
 
