@@ -42,9 +42,12 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
 
     implementation(libs.androidx.navigation.compose)
+
 
     val room_version = "2.6.1"
 

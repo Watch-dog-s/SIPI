@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -24,21 +23,23 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun Authorization_prev(){
 
-    Authorization(navController = rememberNavController())
+    Authorization_Screen(navController = rememberNavController())
 }
 
 
 @Composable
-fun Authorization(navController: NavHostController) {
+fun Authorization_Screen(navController: NavHostController) {
+
     Column(
-        modifier = Modifier.fillMaxHeight()
+        modifier = Modifier
+            .fillMaxHeight()
             .fillMaxWidth())
 
     {
 
         Spacer(modifier = Modifier.height(300.dp))
 
-        // логин
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -55,7 +56,7 @@ fun Authorization(navController: NavHostController) {
         Spacer(modifier = Modifier.height(50.dp))
 
 
-        // пароль
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -83,7 +84,7 @@ fun Authorization(navController: NavHostController) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Button(onClick ={ navController.navigate("To_home") }) { Text(text = "Войти") }
+                Button(onClick ={ navController.navigate("To_Home") }) { Text(text = "Войти") }
             }
         }
 
