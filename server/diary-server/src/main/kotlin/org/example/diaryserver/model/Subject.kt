@@ -8,4 +8,7 @@ data class Subject(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,
+
+    @Column
+    val name: String
 )

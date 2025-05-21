@@ -3,8 +3,10 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/demo" />
+    <file type="web" url="file://$PROJECT_DIR$/server/diary-server" />
     <file type="web" url="file://$PROJECT_DIR$/server/main-server" />
     <file type="web" url="file://$PROJECT_DIR$/server/sdfgjnds" />
+    <file type="web" url="file://$PROJECT_DIR$/server/user-service" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
