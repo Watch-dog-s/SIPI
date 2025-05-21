@@ -12,6 +12,8 @@
     <bytecodeTargetLevel>
       <module name="demo" target="21" />
       <module name="main-server" target="21" />
+      <module name="sdfgjnds" target="21" />
+      <module name="user-server" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

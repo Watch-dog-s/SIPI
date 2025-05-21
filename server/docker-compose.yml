@@ -37,10 +37,10 @@ services:
 #    networks:
 #      - task-network
 
-  main-service:
+  diary-service:
     build:
       context: ./diary-server
-    container_name: main-service
+    container_name: diary-service
     env_file:
       - .env
     depends_on:
@@ -48,6 +48,7 @@ services:
 #      - kafka
 #      - zookeeper
     environment:
+      USER_SERVICE_URL: http://user-service:8081
       SPRING_DATASOURCE_URL: ${POSTGRES_URL}
       SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
@@ -77,25 +78,25 @@ services:
 #    networks:
 #      - task-network
 #
-#  user-service:
-#    build:
-#      context: ./user-service
-#    container_name: user-service
-#    env_file:
-#      - .env
-#    depends_on:
-#      - postgres
+  user-service:
+    build:
+      context: ./user-service
+    container_name: user-service
+    env_file:
+      - .env
+    depends_on:
+      - postgres
 #      - kafka
 #      - zookeeper
-#    environment:
-#      SPRING_DATASOURCE_URL: ${POSTGRES_URL}
-#      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}
-#      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
-#      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
-#    ports:
-#      - "8081:8081"
-#    networks:
-#      - task-network
+    environment:
+      SPRING_DATASOURCE_URL: ${POSTGRES_URL}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+    ports:
+      - "8081:8081"
+    networks:
+      - dairy-network
 
 volumes:
   postgres-data:
