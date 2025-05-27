@@ -50,7 +50,6 @@ data class MarkData(
     var comment:String,
     var Teacher: String,
     var Subject: String
-
 )
 
 

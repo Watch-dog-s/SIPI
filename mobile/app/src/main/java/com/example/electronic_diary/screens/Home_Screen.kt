@@ -2,6 +2,7 @@ package com.example.electronic_diary.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.electronic_diary.R
+import com.example.electronic_diary.navigation.Routes
 
 
 @Preview
@@ -64,7 +66,7 @@ fun Home_Screen(navController: NavHostController) {
                     .padding(8.dp))
                 {
                     Text(
-                        text = "ФИО нашего бэбрика",
+                        text = "ФИО",
                         modifier = Modifier.padding(top = 16.dp).padding(end = 3.dp),
                     )
 
@@ -75,7 +77,8 @@ fun Home_Screen(navController: NavHostController) {
                             modifier = Modifier
                                 .fillMaxSize()
                                 .background(Color.LightGray)
-                                .padding(top = 3.dp),
+                                .padding(top = 3.dp)
+                                .clickable(onClick = {navController.navigate(Routes.LOGIN)}),
                             contentScale = ContentScale.Crop // как я понля этот параметр отвечает за масштабируемость
                         )
 
