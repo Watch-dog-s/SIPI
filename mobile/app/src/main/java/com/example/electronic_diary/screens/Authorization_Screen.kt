@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.electronic_diary.ViewModel.LoginViewModel
+import com.example.electronic_diary.navigation.Routes
 
 
 @Preview
@@ -114,7 +115,19 @@ fun Authorization_Screen(navController: NavHostController,LoginViewModel:LoginVi
 
                 Spacer(modifier = Modifier.height(50.dp))
 
-
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                )
+                {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Button(onClick = { navController.navigate(Routes.PASSWORD_RECOVERY) })
+                        { Text(text = "Регистрация") }
+                    }
+                }
             }
         }
     }

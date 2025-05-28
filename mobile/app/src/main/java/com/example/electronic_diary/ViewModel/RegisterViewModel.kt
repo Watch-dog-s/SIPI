@@ -6,16 +6,14 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class RegisterViewModel: ViewModel() {
-    private val _login=MutableStateFlow(" ")
-    val login: StateFlow<String> =_login.asStateFlow()
+    private val _login=MutableStateFlow("")
+    val login: StateFlow<String> =_login
 
-    private val _password=MutableStateFlow(" ")
-    val password: StateFlow<String> =_password.asStateFlow()
+    private val _password=MutableStateFlow("")
+    val password: StateFlow<String> =_password
 
     private val _registersuccess= MutableStateFlow(false)
     val registersuccess: StateFlow<Boolean> =_registersuccess.asStateFlow()
-
-
 
     fun changeTrue(){_registersuccess.value=true}
 

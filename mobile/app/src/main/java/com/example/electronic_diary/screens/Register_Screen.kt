@@ -43,12 +43,11 @@ fun Password_recovery_Screen(navController: NavHostController,RegisterViewModel:
         TextField(value = password, onValueChange ={newPassword:String ->RegisterViewModel.ChangePassword(newPassword)}  )
 
 
-
-
-
         Spacer(modifier = Modifier.height(15.dp))
-        Button(onClick = {navController.navigate(Routes.LOGIN)}) { Text(text="Зарегестрироваться") }
+        Button(onClick = {}) { Text(text="Зарегестрироваться") }
 
+        Spacer(modifier = Modifier.height(50.dp))
+        Button(onClick = {navController.navigate(Routes.LOGIN)}) { Text(text="Логин") }
 
     }
 }
