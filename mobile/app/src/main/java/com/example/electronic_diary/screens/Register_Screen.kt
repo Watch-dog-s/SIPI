@@ -31,6 +31,7 @@ fun Password_recovery_Screen(navController: NavHostController,RegisterViewModel:
 
     val login by RegisterViewModel.login.collectAsState()
     val password by RegisterViewModel.password.collectAsState()
+
     Column(modifier = Modifier.fillMaxSize()) {
 
         Text(text = "Регистрация");

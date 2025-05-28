@@ -60,7 +60,10 @@ fun Authorization_Screen(navController: NavHostController,LoginViewModel:LoginVi
                     TextField(
                         value = login,
                         onValueChange = { newlogin: String -> LoginViewModel.ChangeLogin(newlogin) },
+                        maxLines = 1,
+                        singleLine = true,
                         placeholder = { Text("Логин") })
+
                 }
 
 
@@ -83,6 +86,8 @@ fun Authorization_Screen(navController: NavHostController,LoginViewModel:LoginVi
                                 onValueChange = { newpassword: String ->
                                     LoginViewModel.ChangePassword(newpassword)
                                 },
+                                maxLines = 1,
+                                singleLine = true,
                                 placeholder = { Text("Пароль") })
                         }
                     }

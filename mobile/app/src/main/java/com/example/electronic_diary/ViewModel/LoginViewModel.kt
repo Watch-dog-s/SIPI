@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class LoginViewModel:ViewModel() {
     private val _login= MutableStateFlow(" ")
-    val login: StateFlow<String> =_login.asStateFlow()
+    val login: StateFlow<String> =_login
 
     private val _password= MutableStateFlow(" ")
     val password: StateFlow<String> =_password.asStateFlow()
@@ -15,9 +15,15 @@ class LoginViewModel:ViewModel() {
     private val _loginsuccess= MutableStateFlow(false)
     val loginsuccess: StateFlow<Boolean> =_loginsuccess.asStateFlow()
 
-    fun ChangeLogin(newlogin:String){_login.value=newlogin}
+    fun ChangeLogin(newlogin:String){
+        _login.value=newlogin
+        println(login.value.toString())
+    }
 
-    fun ChangePassword(newpassword:String){_password.value=newpassword}
+    fun ChangePassword(newpassword:String){
+        _password.value=newpassword
+        println(password.value.toString())
+    }
 
     fun changeTrue(){_loginsuccess.value=true}
 
