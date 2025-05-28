@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.example.electronic_diary.ViewModel.LoginViewModel
+import com.example.electronic_diary.ViewModel.RegisterViewModel
 import com.example.electronic_diary.navigation.navigation
 import com.example.electronic_diary.screens.Authorization_Screen
 import com.example.electronic_diary.screens.MainScreen
@@ -21,10 +23,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val login1=LoginViewModel()
+        val reg1=RegisterViewModel()
         setContent {
             Electronic_diaryTheme {
                 val navController = rememberNavController()
-                MainScreen(navController)
+                MainScreen(navController,login1,reg1)
                 }
             }
 

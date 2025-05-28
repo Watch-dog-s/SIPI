@@ -59,7 +59,6 @@ fun Subject(subject:String,   room:String,    mark:Int,   teacher:String    ,tim
         }
     }
 
-
 }
 
 @Composable
