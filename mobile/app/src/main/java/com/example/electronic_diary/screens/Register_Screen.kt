@@ -18,36 +18,60 @@ import androidx.navigation.compose.rememberNavController
 import com.example.electronic_diary.ViewModel.RegisterViewModel
 import com.example.electronic_diary.navigation.Routes
 
-
-@Preview
 @Composable
-fun Password_Recovery_Screen_Prev(){
-    //Password_recovery_Screen(navController = rememberNavController())
-}
+fun Password_recovery_Screen(
+    navController: NavHostController,
+    registerViewModel:RegisterViewModel)
+{
 
-
-@Composable
-fun Password_recovery_Screen(navController: NavHostController,RegisterViewModel:RegisterViewModel){
-
-    val login by RegisterViewModel.login.collectAsState()
-    val password by RegisterViewModel.password.collectAsState()
+    val login by registerViewModel.login.collectAsState()
+    val email by registerViewModel.email.collectAsState()
+    val password by registerViewModel.password.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
 
         Text(text = "Регистрация");
 
         Spacer(modifier = Modifier.height(15.dp))
-        TextField(value = login, onValueChange = {newlogin:String -> RegisterViewModel.ChangeLogin(newlogin)})
+        TextField(
+            value = login,
+            placeholder = {Text(text = "Логин...")},
+            onValueChange = {
+                newlogin:String -> registerViewModel.ChangeLogin(newlogin)
+            }
+        )
+
 
         Spacer(modifier = Modifier.height(15.dp))
-        TextField(value = password, onValueChange ={newPassword:String ->RegisterViewModel.ChangePassword(newPassword)}  )
+        TextField(
+            value = email,
+            placeholder = {Text(text = "Почта...")},
+            onValueChange = {
+                newEmail:String -> registerViewModel.ChangeEmail(newEmail)
+            }
+        )
+
+        Spacer(modifier = Modifier.height(15.dp))
+        TextField(
+            value = password,
+            placeholder = {Text(text = "Пароль...")},
+            onValueChange = {
+                newPassword:String ->registerViewModel.ChangePassword(newPassword)
+            }
+        )
 
 
         Spacer(modifier = Modifier.height(15.dp))
-        Button(onClick = {}) { Text(text="Зарегестрироваться") }
+        Button(
+            onClick = {
+                registerViewModel.letRegister()
+            }
+        ) {
+            Text(text="Зарегестрироваться")
+        }
 
         Spacer(modifier = Modifier.height(50.dp))
-        Button(onClick = {navController.navigate(Routes.LOGIN)}) { Text(text="Логин") }
+        Button(onClick = {navController.navigate(Routes.LOGIN)}) { Text(text="Авторизация") }
 
     }
 }

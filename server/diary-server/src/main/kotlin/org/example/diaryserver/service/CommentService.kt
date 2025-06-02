@@ -18,7 +18,7 @@ class CommentService(
     }
 
     fun update(comment: CreateCommentDTO) {
-        commentDao.selectByWorkId(comment.workId) ?: throw IllegalArgumentException("Comment not found")
+        commentDao.selectByWorkId(comment.wordId) ?: throw IllegalArgumentException("Comment not found")
         commentDao.update(comment)
     }
 

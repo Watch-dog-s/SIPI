@@ -55,7 +55,7 @@ class CommentDao(
 
     fun insert(comment: CreateCommentDTO) {
         val params = MapSqlParameterSource()
-            .addValue("workId", comment.workId)
+            .addValue("workId", comment.wordId)
             .addValue("text", comment.text)
         jdbc.update(INSERT, params)
     }
@@ -70,7 +70,7 @@ class CommentDao(
 
     fun update(comment: CreateCommentDTO) {
         val params = MapSqlParameterSource()
-            .addValue("workId", comment.workId)
+            .addValue("workId", comment.wordId)
             .addValue("text", comment.text)
         jdbc.update(UPDATE, params)
     }

@@ -44,7 +44,7 @@ class SecurityConfig(
             .csrf { it.disable() }
             .cors { it.configure(http) }
             .authorizeHttpRequests {
-                it.requestMatchers("/api/auth/**").permitAll()
+                it.requestMatchers("/api/v1/auth/**").permitAll()
                     .anyRequest().authenticated()
             }
             .sessionManagement {

@@ -6,9 +6,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.electronic_diary.ViewModel.LoginViewModel
 import com.example.electronic_diary.ViewModel.RegisterViewModel
-import com.example.electronic_diary.screens.Analysis_Screen
-import com.example.electronic_diary.screens.Authorization_Screen
-import com.example.electronic_diary.screens.Home_Screen
+import com.example.electronic_diary.screens.AuthorizationScreen
+import com.example.electronic_diary.screens.HomeScreen
 import com.example.electronic_diary.screens.MarksScreen
 import com.example.electronic_diary.screens.Password_recovery_Screen
 import com.example.electronic_diary.screens.Shedule_Screen
@@ -22,13 +21,10 @@ fun navigation(nav_controller: NavHostController,loginViewModel: LoginViewModel,
         startDestination = Routes.LOGIN) {
 
         composable(Routes.SHEDULE){Shedule_Screen(nav_controller)}
-        composable(Routes.LOGIN){ Authorization_Screen(nav_controller,loginViewModel) }
-        composable(Routes.HOME){ Home_Screen(nav_controller) }
-        composable(Routes.ANALYSIS){ Analysis_Screen(nav_controller) }
+        composable(Routes.LOGIN){ AuthorizationScreen(nav_controller,loginViewModel) }
+        composable(Routes.HOME){ HomeScreen(nav_controller) }
         composable(Routes.PASSWORD_RECOVERY){ Password_recovery_Screen(nav_controller,registerViewModel) }
         composable(Routes.MARKS){ MarksScreen(nav_controller) }
-
-
 
     }
 }

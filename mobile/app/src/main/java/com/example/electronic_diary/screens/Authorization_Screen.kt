@@ -1,8 +1,6 @@
 package com.example.electronic_diary.screens
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,120 +13,52 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.example.electronic_diary.ViewModel.LoginViewModel
 import com.example.electronic_diary.navigation.Routes
 
-
-@Preview
 @Composable
-fun Authorization_prev(){
-
-   // Authorization_Screen(navController = rememberNavController())
-}
-
-
-@Composable
-fun Authorization_Screen(navController: NavHostController,LoginViewModel:LoginViewModel) {
-
-    val login by LoginViewModel.login.collectAsState()
-    val password by LoginViewModel.password.collectAsState()
+fun AuthorizationScreen(navController: NavHostController, loginViewModel: LoginViewModel) {
+    val login by loginViewModel.login.collectAsState()
+    val password by loginViewModel.password.collectAsState()
 
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .fillMaxWidth()
-    )
-
-    {
-
+            .fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Spacer(modifier = Modifier.height(300.dp))
 
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
+        TextField(
+            value = login,
+            onValueChange = { loginViewModel.ChangeLogin(it) },
+            maxLines = 1,
+            singleLine = true,
+            placeholder = { Text("Логин") }
         )
-        {
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Row {
-                    TextField(
-                        value = login,
-                        onValueChange = { newlogin: String -> LoginViewModel.ChangeLogin(newlogin) },
-                        maxLines = 1,
-                        singleLine = true,
-                        placeholder = { Text("Логин") })
 
-                }
+        Spacer(modifier = Modifier.height(50.dp))
 
+        TextField(
+            value = password,
+            onValueChange = { loginViewModel.ChangePassword(it) },
+            maxLines = 1,
+            singleLine = true,
+            placeholder = { Text("Пароль") }
+        )
 
-                Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
+        Button(onClick = { navController.navigate("To_Home") }) {
+            Text(text = "Войти")
+        }
 
+        Spacer(modifier = Modifier.height(50.dp))
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
-                {
-                    Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Row {
-                            TextField(
-                                value = password,
-                                onValueChange = { newpassword: String ->
-                                    LoginViewModel.ChangePassword(newpassword)
-                                },
-                                maxLines = 1,
-                                singleLine = true,
-                                placeholder = { Text("Пароль") })
-                        }
-                    }
-                }
-
-
-                Spacer(modifier = Modifier.height(50.dp))
-
-
-                // войти
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
-                {
-                    Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Button(onClick = { navController.navigate("To_Home") }) { Text(text = "Войти") }
-                    }
-                }
-
-
-                Spacer(modifier = Modifier.height(50.dp))
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
-                {
-                    Column(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Button(onClick = { navController.navigate(Routes.PASSWORD_RECOVERY) })
-                        { Text(text = "Регистрация") }
-                    }
-                }
-            }
+        Button(onClick = { navController.navigate(Routes.PASSWORD_RECOVERY) }) {
+            Text(text = "Регистрация")
         }
     }
 }
