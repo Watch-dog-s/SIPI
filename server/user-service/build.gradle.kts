@@ -17,6 +17,9 @@ java {
 
 repositories {
 	mavenCentral()
+
+	gradlePluginPortal()
+	google()
 }
 
 dependencies {
