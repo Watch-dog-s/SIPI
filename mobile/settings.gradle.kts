@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "electronic_diary"
 include(":app")
- 

@@ -40,7 +40,7 @@ class GroupDao(
 
         private val GROUP_MAPPER = RowMapper { rs, _ ->
             Group(
-                id = rs.getString("id"),
+                id = rs.getLong("id"),
                 name = rs.getString("name")
             )
         }
