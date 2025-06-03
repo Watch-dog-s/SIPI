@@ -25,7 +25,7 @@ class GroupDao(
 
         private const val CHECK_GROUP_EXISTS = """
             select count(*)
-            from `group`
+            from study_group
             where id = :groupId
             """
 
@@ -33,7 +33,7 @@ class GroupDao(
             select 
                 g.id,
                 g.name
-            from `group` g
+            from study_group g
             join user_group ug on ug.group_id = g.id
             where ug.user_id = :userId
             """

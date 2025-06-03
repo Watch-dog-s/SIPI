@@ -1,7 +1,7 @@
 package org.example.diaryserver.controller
 
 import org.example.diaryserver.dto.request.CreateEventDTO
-import org.example.diaryserver.model.Event
+import org.example.diaryserver.dto.response.EventResponse
 import org.example.diaryserver.service.ScheduleService
 import org.springframework.web.bind.annotation.*
 import java.time.OffsetDateTime
@@ -18,8 +18,8 @@ class ScheduleController(
     @GetMapping
     fun getScheduleForUser(
         @RequestHeader(TOKEN) token: String,
-        @RequestParam("date") date: OffsetDateTime
-    ): List<Event> {
+        @RequestParam date: OffsetDateTime
+    ): List<EventResponse> {
         return scheduleService.getSchedule(token, date)
     }
 
