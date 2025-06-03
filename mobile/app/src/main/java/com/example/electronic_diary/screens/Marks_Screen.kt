@@ -25,8 +25,6 @@ fun MarksScreen(
 ) {
     val allMarks by viewModel.marks.collectAsState()
 
-    viewModel.setMarks()
-
     val grouped = allMarks.groupBy { it.subject }
 
     LazyColumn(
