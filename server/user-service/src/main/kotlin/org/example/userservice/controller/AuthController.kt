@@ -65,6 +65,7 @@ class AuthController(
 
     @GetMapping("/token")
     fun getUserIdByToken(@RequestHeader(TOKEN) authHeader: String): Long {
+        println(authHeader)
         val token = authHeader.substring(7)
         return userService.getUserIdByToken(token)
     }

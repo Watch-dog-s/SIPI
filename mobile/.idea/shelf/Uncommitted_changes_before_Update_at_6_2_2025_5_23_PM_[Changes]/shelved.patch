@@ -1,0 +1,283 @@
+Index: app/src/main/java/com/example/electronic_diary/ViewModel/ViewModelAPI.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.electronic_diary.ViewModel\r\n\r\nclass ViewModelAPI {\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/electronic_diary/ViewModel/ViewModelAPI.kt b/app/src/main/java/com/example/electronic_diary/ViewModel/ViewModelAPI.kt
+--- a/app/src/main/java/com/example/electronic_diary/ViewModel/ViewModelAPI.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/app/src/main/java/com/example/electronic_diary/ViewModel/ViewModelAPI.kt	(date 1748368854823)
+@@ -1,4 +1,5 @@
+ package com.example.electronic_diary.ViewModel
+ 
+ class ViewModelAPI {
++
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/electronic_diary/navigation/navigation.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.electronic_diary.navigation\r\n\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.navigation.NavHostController\r\nimport androidx.navigation.compose.NavHost\r\nimport androidx.navigation.compose.composable\r\nimport com.example.electronic_diary.screens.Analysis_Screen\r\nimport com.example.electronic_diary.screens.Authorization_Screen\r\nimport com.example.electronic_diary.screens.Home_Screen\r\nimport com.example.electronic_diary.screens.Marks_Screen\r\nimport com.example.electronic_diary.screens.Password_recovery_Screen\r\nimport com.example.electronic_diary.screens.Shedule_Screen\r\n\r\n@Composable\r\nfun navigation(nav_controller: NavHostController)\r\n{\r\n    NavHost(\r\n        navController = nav_controller,\r\n        startDestination = Routes.LOGIN) {\r\n\r\n        composable(Routes.SHEDULE){Shedule_Screen(nav_controller)}\r\n        composable(Routes.LOGIN){ Authorization_Screen(nav_controller) }\r\n        composable(Routes.HOME){ Home_Screen(nav_controller) }\r\n        composable(Routes.ANALYSIS){ Analysis_Screen(nav_controller) }\r\n        composable(Routes.PASSWORD_RECOVERY){ Password_recovery_Screen(nav_controller) }\r\n        composable(Routes.MARKS){ Marks_Screen(nav_controller) }\r\n\r\n\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/electronic_diary/navigation/navigation.kt b/app/src/main/java/com/example/electronic_diary/navigation/navigation.kt
+--- a/app/src/main/java/com/example/electronic_diary/navigation/navigation.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/app/src/main/java/com/example/electronic_diary/navigation/navigation.kt	(date 1748365904061)
+@@ -25,7 +25,5 @@
+         composable(Routes.PASSWORD_RECOVERY){ Password_recovery_Screen(nav_controller) }
+         composable(Routes.MARKS){ Marks_Screen(nav_controller) }
+ 
+-
+-
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/electronic_diary/screens/Authorization_Screen.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.electronic_diary.screens\r\n\r\nimport androidx.compose.foundation.layout.Box\r\nimport androidx.compose.foundation.layout.Column\r\nimport androidx.compose.foundation.layout.Row\r\nimport androidx.compose.foundation.layout.Spacer\r\nimport androidx.compose.foundation.layout.fillMaxHeight\r\nimport androidx.compose.foundation.layout.fillMaxWidth\r\nimport androidx.compose.foundation.layout.height\r\nimport androidx.compose.material3.Button\r\nimport androidx.compose.material3.Text\r\nimport androidx.compose.material3.TextField\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.compose.ui.Alignment\r\nimport androidx.compose.ui.Modifier\r\nimport androidx.compose.ui.tooling.preview.Preview\r\nimport androidx.compose.ui.unit.dp\r\nimport androidx.navigation.NavHostController\r\nimport androidx.navigation.compose.rememberNavController\r\n\r\n\r\n@Preview\r\n@Composable\r\nfun Authorization_prev(){\r\n\r\n    Authorization_Screen(navController = rememberNavController())\r\n}\r\n\r\n\r\n@Composable\r\nfun Authorization_Screen(navController: NavHostController) {\r\n\r\n    Column(\r\n        modifier = Modifier\r\n            .fillMaxHeight()\r\n            .fillMaxWidth())\r\n\r\n    {\r\n\r\n        Spacer(modifier = Modifier.height(300.dp))\r\n\r\n\r\n        Box(\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n        )\r\n        {\r\n            Column(\r\n                modifier = Modifier.fillMaxWidth(),\r\n                horizontalAlignment = Alignment.CenterHorizontally\r\n            ) {\r\n                Row { TextField(value = \"Введите логин\", onValueChange = {}) }\r\n            }\r\n        }\r\n\r\n        Spacer(modifier = Modifier.height(50.dp))\r\n\r\n\r\n\r\n        Box(\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n        )\r\n        {\r\n            Column(\r\n                modifier = Modifier.fillMaxWidth(),\r\n                horizontalAlignment = Alignment.CenterHorizontally\r\n            ) {\r\n                Row { TextField(value = \"Введите пароль\", onValueChange = {}) }\r\n            }\r\n        }\r\n\r\n\r\n        Spacer(modifier = Modifier.height(50.dp))\r\n\r\n\r\n        // войти\r\n        Box(\r\n            modifier = Modifier\r\n                .fillMaxWidth()\r\n        )\r\n        {\r\n            Column(\r\n                modifier = Modifier.fillMaxWidth(),\r\n                horizontalAlignment = Alignment.CenterHorizontally\r\n            ) {\r\n                Button(onClick ={ navController.navigate(\"To_Home\") }) { Text(text = \"Войти\") }\r\n            }\r\n        }\r\n\r\n\r\n        Spacer(modifier = Modifier.height(50.dp))\r\n\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/electronic_diary/screens/Authorization_Screen.kt b/app/src/main/java/com/example/electronic_diary/screens/Authorization_Screen.kt
+--- a/app/src/main/java/com/example/electronic_diary/screens/Authorization_Screen.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/app/src/main/java/com/example/electronic_diary/screens/Authorization_Screen.kt	(date 1748370622997)
+@@ -39,7 +39,6 @@
+ 
+         Spacer(modifier = Modifier.height(300.dp))
+ 
+-
+         Box(
+             modifier = Modifier
+                 .fillMaxWidth()
+@@ -56,7 +55,6 @@
+         Spacer(modifier = Modifier.height(50.dp))
+ 
+ 
+-
+         Box(
+             modifier = Modifier
+                 .fillMaxWidth()
+@@ -70,10 +68,8 @@
+             }
+         }
+ 
+-
+         Spacer(modifier = Modifier.height(50.dp))
+ 
+-
+         // войти
+         Box(
+             modifier = Modifier
+@@ -88,10 +84,7 @@
+             }
+         }
+ 
+-
+         Spacer(modifier = Modifier.height(50.dp))
+ 
+-
+-
+     }
+ }
+Index: ../server/user-service/src/main/kotlin/org/example/userservice/security/SecurityConfig.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.userservice.security\r\n\r\nimport org.example.userservice.repository.UserRepository\r\nimport org.springframework.context.annotation.Bean\r\nimport org.springframework.context.annotation.Configuration\r\nimport org.springframework.security.authentication.AuthenticationManager\r\nimport org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration\r\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity\r\nimport org.springframework.security.config.http.SessionCreationPolicy\r\nimport org.springframework.security.core.userdetails.UserDetailsService\r\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder\r\nimport org.springframework.security.web.SecurityFilterChain\r\nimport org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter\r\nimport org.springframework.web.cors.CorsConfiguration\r\nimport org.springframework.web.cors.CorsConfigurationSource\r\nimport org.springframework.web.cors.UrlBasedCorsConfigurationSource\r\n\r\n@Configuration\r\nclass SecurityConfig(\r\n    private val userRepository: UserRepository\r\n) {\r\n\r\n    @Bean\r\n    fun passwordEncoder() = BCryptPasswordEncoder()\r\n\r\n    @Bean\r\n    fun userDetailsService(): UserDetailsService = UserDetailsService { username ->\r\n        val user = userRepository.findByUsername(username)\r\n            ?: throw RuntimeException(\"User not found\")\r\n        org.springframework.security.core.userdetails.User\r\n            .withUsername(user.username)\r\n            .password(user.password)\r\n            .authorities(\"USER\")\r\n            .build()\r\n    }\r\n\r\n    @Bean\r\n    fun authenticationManager(config: AuthenticationConfiguration): AuthenticationManager =\r\n        config.authenticationManager\r\n\r\n    @Bean\r\n    fun securityFilterChain(http: HttpSecurity, jwtTokenFilter: JwtTokenFilter): SecurityFilterChain {\r\n        http\r\n            .csrf { it.disable() }\r\n            .cors { it.configure(http) }\r\n            .authorizeHttpRequests {\r\n                it.requestMatchers(\"/api/auth/**\").permitAll()\r\n                    .anyRequest().authenticated()\r\n            }\r\n            .sessionManagement {\r\n                it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)\r\n            }\r\n            .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter::class.java)\r\n\r\n        return http.build()\r\n    }\r\n    @Bean\r\n    fun corsConfigurationSource(): CorsConfigurationSource {\r\n        val configuration = CorsConfiguration()\r\n        configuration.allowedOrigins = listOf(\"*\")\r\n        configuration.allowedMethods = listOf(\"GET\", \"POST\", \"PUT\", \"DELETE\")\r\n        configuration.allowedHeaders = listOf(\"*\")\r\n        val source = UrlBasedCorsConfigurationSource()\r\n        source.registerCorsConfiguration(\"/**\", configuration)\r\n        return source\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/user-service/src/main/kotlin/org/example/userservice/security/SecurityConfig.kt b/../server/user-service/src/main/kotlin/org/example/userservice/security/SecurityConfig.kt
+--- a/../server/user-service/src/main/kotlin/org/example/userservice/security/SecurityConfig.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/user-service/src/main/kotlin/org/example/userservice/security/SecurityConfig.kt	(date 1748375379278)
+@@ -44,7 +44,7 @@
+             .csrf { it.disable() }
+             .cors { it.configure(http) }
+             .authorizeHttpRequests {
+-                it.requestMatchers("/api/auth/**").permitAll()
++                it.requestMatchers("/api/v1/auth/**").permitAll()
+                     .anyRequest().authenticated()
+             }
+             .sessionManagement {
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"deploymentTargetSelector\">\r\n    <selectionStates>\r\n      <SelectionState runConfigName=\"app\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n        <DropdownSelection timestamp=\"2025-04-24T11:40:07.975519200Z\">\r\n          <Target type=\"DEFAULT_BOOT\">\r\n            <handle>\r\n              <DeviceId pluginId=\"LocalEmulator\" identifier=\"path=C:\\Users\\marat\\.android\\avd\\Pixel_9_Pro_XL_API_35.avd\" />\r\n            </handle>\r\n          </Target>\r\n        </DropdownSelection>\r\n        <DialogSelection />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"Home_Screen_prev\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n      <SelectionState runConfigName=\"Marks_Screen_prev\">\r\n        <option name=\"selectionMode\" value=\"DROPDOWN\" />\r\n      </SelectionState>\r\n    </selectionStates>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+--- a/.idea/deploymentTargetSelector.xml	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/.idea/deploymentTargetSelector.xml	(date 1748365944073)
+@@ -13,12 +13,6 @@
+         </DropdownSelection>
+         <DialogSelection />
+       </SelectionState>
+-      <SelectionState runConfigName="Home_Screen_prev">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+-      <SelectionState runConfigName="Marks_Screen_prev">
+-        <option name="selectionMode" value="DROPDOWN" />
+-      </SelectionState>
+     </selectionStates>
+   </component>
+ </project>
+\ No newline at end of file
+Index: ../server/docker-compose.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>version: '3.9'\r\nservices:\r\n  postgres:\r\n    image: postgres:15\r\n    container_name: postgres\r\n    environment:\r\n      POSTGRES_DB: electronic-diary\r\n      POSTGRES_USER: ${POSTGRES_USERNAME}\r\n      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}\r\n    ports:\r\n      - \"5432:5432\"\r\n    volumes:\r\n      - postgres-data:/var/lib/postgresql/data\r\n    networks:\r\n      - dairy-network\r\n\r\n#  kafka:\r\n#    image: confluentinc/cp-kafka:latest\r\n#    environment:\r\n#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181\r\n#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092\r\n#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1\r\n#      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092\r\n#    ports:\r\n#      - \"9092:9092\"\r\n#    depends_on:\r\n#      - zookeeper\r\n#    networks:\r\n#      - task-network\r\n\r\n#  zookeeper:\r\n#    image: confluentinc/cp-zookeeper:latest\r\n#    environment:\r\n#      ZOOKEEPER_CLIENT_PORT: 2181\r\n#    ports:\r\n#      - \"2181:2181\"\r\n#    networks:\r\n#      - task-network\r\n\r\n  diary-service:\r\n    build:\r\n      context: ./diary-server\r\n    container_name: diary-service\r\n    env_file:\r\n      - .env\r\n    depends_on:\r\n      - postgres\r\n#      - kafka\r\n#      - zookeeper\r\n    environment:\r\n      USER_SERVICE_URL: http://user-service:8081\r\n      SPRING_DATASOURCE_URL: ${POSTGRES_URL}\r\n      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}\r\n      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}\r\n#      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092\r\n    ports:\r\n      - \"8080:8080\"\r\n    networks:\r\n      - dairy-network\r\n\r\n#  notification-service:\r\n#    build:\r\n#      context: ./notification-service\r\n#    container_name: notification-service\r\n#    env_file:\r\n#      - .env\r\n#    depends_on:\r\n#      - postgres\r\n#      - kafka\r\n#      - zookeeper\r\n#    environment:\r\n#      SPRING_DATASOURCE_URL: ${POSTGRES_URL}\r\n#      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}\r\n#      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}\r\n#      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092\r\n#    ports:\r\n#      - \"8082:8082\"\r\n#    networks:\r\n#      - task-network\r\n#\r\n  user-service:\r\n    build:\r\n      context: ./user-service\r\n    container_name: user-service\r\n    env_file:\r\n      - .env\r\n    depends_on:\r\n      - postgres\r\n#      - kafka\r\n#      - zookeeper\r\n    environment:\r\n      SPRING_DATASOURCE_URL: ${POSTGRES_URL}\r\n      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USERNAME}\r\n      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}\r\n      JWT_SECRET_KEY: ${JWT_SECRET_KEY}\r\n    ports:\r\n      - \"8081:8081\"\r\n    networks:\r\n      - dairy-network\r\n\r\nvolumes:\r\n  postgres-data:\r\n\r\nnetworks:\r\n  dairy-network:\r\n    driver: bridge\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/docker-compose.yml b/../server/docker-compose.yml
+--- a/../server/docker-compose.yml	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/docker-compose.yml	(date 1748711535501)
+@@ -8,7 +8,7 @@
+       POSTGRES_USER: ${POSTGRES_USERNAME}
+       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+     ports:
+-      - "5432:5432"
++      - "5433:5433"
+     volumes:
+       - postgres-data:/var/lib/postgresql/data
+     networks:
+Index: ../server/user-service/settings.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>rootProject.name = \"user-service\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/user-service/settings.gradle.kts b/../server/user-service/settings.gradle.kts
+--- a/../server/user-service/settings.gradle.kts	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/user-service/settings.gradle.kts	(date 1748709854959)
+@@ -1,1 +1,1 @@
+-rootProject.name = "user-service"
++rootProject.name = "user-service"
+\ No newline at end of file
+Index: ../server/user-service/src/main/kotlin/org/example/userservice/dto/request/RegisterRequest.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.userservice.dto.request\r\n\r\ndata class RegisterRequest(val username: String, val password: String, val email: String)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/user-service/src/main/kotlin/org/example/userservice/dto/request/RegisterRequest.kt b/../server/user-service/src/main/kotlin/org/example/userservice/dto/request/RegisterRequest.kt
+--- a/../server/user-service/src/main/kotlin/org/example/userservice/dto/request/RegisterRequest.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/user-service/src/main/kotlin/org/example/userservice/dto/request/RegisterRequest.kt	(date 1748370791852)
+@@ -1,3 +1,7 @@
+ package org.example.userservice.dto.request
+ 
+-data class RegisterRequest(val username: String, val password: String, val email: String)
+\ No newline at end of file
++data class RegisterRequest(
++    val username: String,
++    val password: String,
++    val email: String
++)
+\ No newline at end of file
+Index: ../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/CommentDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.diaryserver.dao\r\n\r\nimport org.example.diaryserver.dto.request.CreateCommentDTO\r\nimport org.example.diaryserver.model.Comment\r\nimport org.springframework.jdbc.core.RowMapper\r\nimport org.springframework.jdbc.core.namedparam.MapSqlParameterSource\r\nimport org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate\r\nimport org.springframework.stereotype.Repository\r\n\r\n@Repository\r\nclass CommentDao(\r\n    private val jdbc: NamedParameterJdbcTemplate\r\n) {\r\n    companion object {\r\n        private const val INSERT = \"\"\"\r\n            insert into comment(work_id, text) \r\n            values (:workId, :text)\r\n            \"\"\"\r\n\r\n        private const val SELECT_BY_WORK_ID = \"\"\"\r\n            select \r\n                work_id,\r\n                text\r\n            from comment\r\n            where work_id = :workId\r\n        \"\"\"\r\n\r\n        private const val UPDATE = \"\"\"\r\n            update comment\r\n            set text = :text\r\n            where work_id = :workId\r\n        \"\"\"\r\n\r\n        private const val DELETE = \"\"\"\r\n            delete from comment\r\n            where work_id = :workId\r\n        \"\"\"\r\n\r\n        private const val SELECT_BY_SUBJECT = \"\"\"\r\n            select \r\n                c.work_id,\r\n                c.text\r\n            from comment c\r\n            join work w on w.id = c.work_id\r\n            where w.subject_id = :subjectId\r\n        \"\"\"\r\n\r\n        private val COMMENT_MAPPER = RowMapper { rs, _ ->\r\n            Comment(\r\n                workId = rs.getLong(\"work_id\"),\r\n                text = rs.getString(\"text\")\r\n            )\r\n        }\r\n    }\r\n\r\n    fun insert(comment: CreateCommentDTO) {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"workId\", comment.workId)\r\n            .addValue(\"text\", comment.text)\r\n        jdbc.update(INSERT, params)\r\n    }\r\n\r\n    fun selectByWorkId(workId: Long): Comment? {\r\n        return jdbc.query(\r\n            SELECT_BY_WORK_ID,\r\n            mapOf(\"workId\" to workId),\r\n            COMMENT_MAPPER\r\n        ).firstOrNull()\r\n    }\r\n\r\n    fun update(comment: CreateCommentDTO) {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"workId\", comment.workId)\r\n            .addValue(\"text\", comment.text)\r\n        jdbc.update(UPDATE, params)\r\n    }\r\n\r\n    fun delete(workId: Long) {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"workId\", workId)\r\n        jdbc.update(DELETE, params)\r\n    }\r\n\r\n    fun selectBySubjectId(subjectId: Long): List<Comment> {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"subjectId\", subjectId)\r\n        return jdbc.query(SELECT_BY_SUBJECT, params, COMMENT_MAPPER)\r\n    }\r\n} 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/CommentDao.kt b/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/CommentDao.kt
+--- a/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/CommentDao.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/CommentDao.kt	(date 1748365031285)
+@@ -55,7 +55,7 @@
+ 
+     fun insert(comment: CreateCommentDTO) {
+         val params = MapSqlParameterSource()
+-            .addValue("workId", comment.workId)
++            .addValue("workId", comment.wordId)
+             .addValue("text", comment.text)
+         jdbc.update(INSERT, params)
+     }
+@@ -70,7 +70,7 @@
+ 
+     fun update(comment: CreateCommentDTO) {
+         val params = MapSqlParameterSource()
+-            .addValue("workId", comment.workId)
++            .addValue("workId", comment.wordId)
+             .addValue("text", comment.text)
+         jdbc.update(UPDATE, params)
+     }
+Index: ../server/.env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>POSTGRES_USERNAME=postgres\r\nPOSTGRES_PASSWORD=postgres\r\nPOSTGRES_URL=jdbc:postgresql://postgres/electronic-diary
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/.env b/../server/.env
+--- a/../server/.env	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/.env	(date 1748364654055)
+@@ -1,3 +1,4 @@
+ POSTGRES_USERNAME=postgres
+ POSTGRES_PASSWORD=postgres
+-POSTGRES_URL=jdbc:postgresql://postgres/electronic-diary
+\ No newline at end of file
++POSTGRES_URL=jdbc:postgresql://postgres/electronic-diary
++JWT_SECRET_KEY=6a3f9e40aa$8fbWytgk9sD1pL!n@R^zqUvEz*VpW3x
+\ No newline at end of file
+Index: ../server/user-service/src/main/kotlin/org/example/userservice/controller/AuthController.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.userservice.controller\r\n\r\nimport org.example.userservice.dto.request.LoginRequest\r\nimport org.example.userservice.dto.request.RegisterRequest\r\nimport org.example.userservice.dto.response.AuthResponse\r\nimport org.example.userservice.entity.Token\r\nimport org.example.userservice.entity.User\r\nimport org.example.userservice.repository.TokenRepository\r\nimport org.example.userservice.repository.UserRepository\r\nimport org.example.userservice.security.JwtTokenProvider\r\nimport org.example.userservice.service.UserService\r\nimport org.springframework.http.HttpStatus\r\nimport org.springframework.security.crypto.password.PasswordEncoder\r\nimport org.springframework.web.bind.annotation.*\r\nimport org.springframework.web.server.ResponseStatusException\r\n\r\n@RestController\r\n@RequestMapping(\"/api/v1/auth\")\r\nclass AuthController(\r\n    private val userRepository: UserRepository,\r\n    private val tokenRepository: TokenRepository,\r\n    private val passwordEncoder: PasswordEncoder,\r\n    private val jwtTokenProvider: JwtTokenProvider,\r\n    private val userService: UserService,\r\n) {\r\n    companion object {\r\n        private const val TOKEN: String = \"Authorization\"\r\n    }\r\n\r\n    @PostMapping(\"/register\")\r\n    fun register(@RequestBody request: RegisterRequest): AuthResponse {\r\n        if (userRepository.findByUsername(request.username) != null) {\r\n            throw ResponseStatusException(HttpStatus.CONFLICT, \"Username already exists\")\r\n        }\r\n        if (userRepository.existsByEmail(request.email)) {\r\n            throw ResponseStatusException(HttpStatus.CONFLICT, \"Email already registered\")\r\n        }\r\n\r\n        val user = User(\r\n            username = request.username,\r\n            password = passwordEncoder.encode(request.password),\r\n            email = request.email\r\n        )\r\n        val u = userRepository.save(user)\r\n\r\n        val token = jwtTokenProvider.createToken(user.username!!)\r\n\r\n        tokenRepository.save(Token(u.id!!, token))\r\n        return AuthResponse(token)\r\n    }\r\n\r\n\r\n    @PostMapping(\"/login\")\r\n    fun login(@RequestBody request: LoginRequest): AuthResponse {\r\n        val user = userRepository.findByUsername(request.username)\r\n            ?: throw RuntimeException(\"User not found\")\r\n\r\n        if (!passwordEncoder.matches(request.password, user.password)) {\r\n            throw RuntimeException(\"Invalid credentials\")\r\n        }\r\n\r\n        val token = jwtTokenProvider.createToken(user.username!!)\r\n        return AuthResponse(token)\r\n    }\r\n\r\n    @GetMapping(\"/token\")\r\n    fun getUserIdByToken(@RequestHeader(TOKEN) authHeader: String): Long {\r\n        val token = authHeader.substring(7)\r\n        return userService.getUserIdByToken(token)\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/user-service/src/main/kotlin/org/example/userservice/controller/AuthController.kt b/../server/user-service/src/main/kotlin/org/example/userservice/controller/AuthController.kt
+--- a/../server/user-service/src/main/kotlin/org/example/userservice/controller/AuthController.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/user-service/src/main/kotlin/org/example/userservice/controller/AuthController.kt	(date 1748375930578)
+@@ -65,6 +65,7 @@
+ 
+     @GetMapping("/token")
+     fun getUserIdByToken(@RequestHeader(TOKEN) authHeader: String): Long {
++        println(authHeader)
+         val token = authHeader.substring(7)
+         return userService.getUserIdByToken(token)
+     }
+Index: ../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/GroupDao.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.diaryserver.dao\r\n\r\nimport org.example.diaryserver.dto.request.AddUserToGroupDTO\r\nimport org.example.diaryserver.model.Group\r\nimport org.springframework.jdbc.core.RowMapper\r\nimport org.springframework.jdbc.core.namedparam.MapSqlParameterSource\r\nimport org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate\r\nimport org.springframework.stereotype.Repository\r\n\r\n@Repository\r\nclass GroupDao(\r\n    private val jdbc: NamedParameterJdbcTemplate\r\n) {\r\n    companion object {\r\n        private const val INSERT_USER_TO_GROUP = \"\"\"\r\n            insert into user_group(user_id, group_id) \r\n            values (:userId, :groupId)\r\n            \"\"\"\r\n\r\n        private const val CHECK_USER_IN_GROUP = \"\"\"\r\n            select count(*)\r\n            from user_group\r\n            where user_id = :userId and group_id = :groupId\r\n            \"\"\"\r\n\r\n        private const val CHECK_GROUP_EXISTS = \"\"\"\r\n            select count(*)\r\n            from `group`\r\n            where id = :groupId\r\n            \"\"\"\r\n\r\n        private const val SELECT_USER_GROUPS = \"\"\"\r\n            select \r\n                g.id,\r\n                g.name\r\n            from `group` g\r\n            join user_group ug on ug.group_id = g.id\r\n            where ug.user_id = :userId\r\n            \"\"\"\r\n\r\n        private val GROUP_MAPPER = RowMapper { rs, _ ->\r\n            Group(\r\n                id = rs.getString(\"id\"),\r\n                name = rs.getString(\"name\")\r\n            )\r\n        }\r\n    }\r\n\r\n    fun addUserToGroup(request: AddUserToGroupDTO) {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"userId\", request.userId)\r\n            .addValue(\"groupId\", request.groupId)\r\n        jdbc.update(INSERT_USER_TO_GROUP, params)\r\n    }\r\n\r\n    fun isUserInGroup(userId: Long, groupId: Long): Boolean {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"userId\", userId)\r\n            .addValue(\"groupId\", groupId)\r\n        return jdbc.queryForObject(CHECK_USER_IN_GROUP, params, Int::class.java)!! > 0\r\n    }\r\n\r\n    fun doesGroupExist(groupId: Long): Boolean {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"groupId\", groupId)\r\n        return jdbc.queryForObject(CHECK_GROUP_EXISTS, params, Int::class.java)!! > 0\r\n    }\r\n\r\n    fun getUserGroups(userId: Long): List<Group> {\r\n        val params = MapSqlParameterSource()\r\n            .addValue(\"userId\", userId)\r\n        return jdbc.query(SELECT_USER_GROUPS, params, GROUP_MAPPER)\r\n    }\r\n} 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/GroupDao.kt b/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/GroupDao.kt
+--- a/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/GroupDao.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/diary-server/src/main/kotlin/org/example/diaryserver/dao/GroupDao.kt	(date 1748365071654)
+@@ -40,7 +40,7 @@
+ 
+         private val GROUP_MAPPER = RowMapper { rs, _ ->
+             Group(
+-                id = rs.getString("id"),
++                id = rs.getLong("id"),
+                 name = rs.getString("name")
+             )
+         }
+Index: ../server/diary-server/src/main/kotlin/org/example/diaryserver/service/CommentService.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.diaryserver.service\r\n\r\nimport org.example.diaryserver.dao.CommentDao\r\nimport org.example.diaryserver.dto.request.CreateCommentDTO\r\nimport org.example.diaryserver.model.Comment\r\nimport org.springframework.stereotype.Service\r\n\r\n@Service\r\nclass CommentService(\r\n    private val commentDao: CommentDao\r\n) {\r\n    fun create(comment: CreateCommentDTO) {\r\n        commentDao.insert(comment)\r\n    }\r\n\r\n    fun getById(workId: Long): Comment? {\r\n        return commentDao.selectByWorkId(workId)\r\n    }\r\n\r\n    fun update(comment: CreateCommentDTO) {\r\n        commentDao.selectByWorkId(comment.workId) ?: throw IllegalArgumentException(\"Comment not found\")\r\n        commentDao.update(comment)\r\n    }\r\n\r\n    fun delete(workId: Long) {\r\n        commentDao.selectByWorkId(workId) ?: throw IllegalArgumentException(\"Comment not found\")\r\n        commentDao.delete(workId)\r\n    }\r\n\r\n    fun getBySubjectId(subjectId: Long): List<Comment> {\r\n        return commentDao.selectBySubjectId(subjectId)\r\n    }\r\n} 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../server/diary-server/src/main/kotlin/org/example/diaryserver/service/CommentService.kt b/../server/diary-server/src/main/kotlin/org/example/diaryserver/service/CommentService.kt
+--- a/../server/diary-server/src/main/kotlin/org/example/diaryserver/service/CommentService.kt	(revision eba19242ca32ecfc69a393c3a062f81bc7911079)
++++ b/../server/diary-server/src/main/kotlin/org/example/diaryserver/service/CommentService.kt	(date 1748365081685)
+@@ -18,7 +18,7 @@
+     }
+ 
+     fun update(comment: CreateCommentDTO) {
+-        commentDao.selectByWorkId(comment.workId) ?: throw IllegalArgumentException("Comment not found")
++        commentDao.selectByWorkId(comment.wordId) ?: throw IllegalArgumentException("Comment not found")
+         commentDao.update(comment)
+     }
+ 
