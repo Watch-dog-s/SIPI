@@ -24,5 +24,5 @@ data class Work(
     val studentId: Long,
 
     @Column
-    val subjectId: Long,
+    val subjectId: Long
 )

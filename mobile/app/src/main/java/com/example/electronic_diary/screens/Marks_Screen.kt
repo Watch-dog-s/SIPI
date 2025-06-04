@@ -25,8 +25,6 @@ fun MarksScreen(
 ) {
     val allMarks by viewModel.marks.collectAsState()
 
-    viewModel.setMarks()
-
     val grouped = allMarks.groupBy { it.subject }
 
     LazyColumn(
@@ -69,13 +67,6 @@ fun MarkCard(markData: MarkData) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(text = markData.mark.toString())
-            Text(text = markData.comment, fontSize = 10.sp)
         }
     }
-}
-
-@Composable
-@Preview
-fun PreviewMarksScreen() {
-    MarksScreen(navController = rememberNavController())
 }

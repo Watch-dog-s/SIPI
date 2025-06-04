@@ -1,7 +1,7 @@
-package com.example.electronic_diary.api.Remote
+package com.example.electronic_diary.api.dto
 
 data class RegisterRequest(
-    val login : String,
+    val username : String,
     val email : String,
     val password : String
 )

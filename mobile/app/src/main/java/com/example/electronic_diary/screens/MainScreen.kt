@@ -33,6 +33,7 @@ fun MainScreen(navController: NavHostController,loginViewModel: LoginViewModel,r
         Routes.HOME,
         Routes.MARKS,
         Routes.SHEDULE,
+        Routes.ANALYSIS
     )
 
     Scaffold(
@@ -61,6 +62,7 @@ private fun currentRoute(navController: NavController): String? {
 
 @Composable
 fun BottomBar(navController: NavController) {
+
     BottomAppBar(
 
         actions = {
@@ -95,4 +97,6 @@ fun BottomBar(navController: NavController) {
         },
 
         )
+
+
 }

@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-RUN curl https://plugins.gradle.org
-
 RUN gradle clean build -x test
 
 FROM eclipse-temurin:21-jre-alpine

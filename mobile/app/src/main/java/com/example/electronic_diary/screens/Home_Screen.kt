@@ -31,8 +31,16 @@ import androidx.navigation.compose.rememberNavController
 import com.example.electronic_diary.R
 import com.example.electronic_diary.navigation.Routes
 
+
+@Preview
 @Composable
-fun HomeScreen(navController: NavHostController) {
+fun Home_Screen_prev(){
+    Home_Screen(navController = rememberNavController())
+}
+
+
+@Composable
+fun Home_Screen(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -43,42 +51,42 @@ fun HomeScreen(navController: NavHostController) {
                 .padding(12.dp)
                 .fillMaxWidth()
         ) {
+
             val bitmapImage = ImageBitmap.imageResource(id = R.drawable.image1)
 
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
                     .size(200.dp)
+                    .padding(8.dp)
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(8.dp)
-                ) {
+                Column(modifier = Modifier
+                    .fillMaxHeight()
+                    .size(200.dp)
+                    .padding(8.dp))
+                {
                     Text(
                         text = "ФИО",
-                        modifier = Modifier
-                            .padding(top = 16.dp, end = 3.dp),
+                        modifier = Modifier.padding(top = 16.dp).padding(end = 3.dp),
                     )
 
-                    Image(
-                        bitmap = bitmapImage,
-                        contentDescription = "Фото профиля",
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(Color.LightGray)
-                            .padding(top = 3.dp)
-                            .clickable {
-                                navController.navigate(Routes.LOGIN)
-                            },
-                        contentScale = ContentScale.Crop
-                    )
+                    Row(modifier = Modifier.fillMaxSize()) {
+                        Image(
+                            bitmap = bitmapImage,
+                            contentDescription = "Bombardiro Crocadilo",
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(Color.LightGray)
+                                .padding(top = 3.dp)
+                                .clickable(onClick = {navController.navigate(Routes.LOGIN)}),
+                            contentScale = ContentScale.Crop // как я понля этот параметр отвечает за масштабируемость
+                        )
+
+                    }
                 }
             }
 
-            Text(text = "День рождения у ученика ......")
-            Text(text = "Турнир по Доте ......")
         }
     }
+
 }

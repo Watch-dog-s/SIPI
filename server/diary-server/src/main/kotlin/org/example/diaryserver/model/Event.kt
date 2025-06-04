@@ -20,5 +20,14 @@ data class Event(
     val endTime: OffsetDateTime,
 
     @Column
-    val name: String
+    val name: String,
+
+    @Column
+    val subjectId: Long,
+
+    @Column
+    val place: String,
+
+    @Column
+    val teacherId: Long,
 )
