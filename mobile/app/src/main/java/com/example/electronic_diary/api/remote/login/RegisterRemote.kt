@@ -1,12 +1,12 @@
-package com.example.electronic_diary.api.remote
+package com.example.electronic_diary.api.remote.login
 
-import com.example.electronic_diary.api.ApiClient
+import com.example.electronic_diary.api.ApiClientLogin
 import com.example.electronic_diary.api.dto.RegisterRequest
 
 suspend fun registerUser(registerRequest: RegisterRequest) : Result<String>
 {
     try {
-        val response = ApiClient.retrofit.register(registerRequest)
+        val response = ApiClientLogin.retrofit.register(registerRequest)
         val token = response.token
 
         return Result.success(token)

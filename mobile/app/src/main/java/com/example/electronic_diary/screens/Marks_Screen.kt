@@ -67,13 +67,6 @@ fun MarkCard(markData: MarkData) {
             verticalArrangement = Arrangement.Center
         ) {
             Text(text = markData.mark.toString())
-            Text(text = markData.comment, fontSize = 10.sp)
         }
     }
-}
-
-@Composable
-@Preview
-fun PreviewMarksScreen() {
-    MarksScreen(navController = rememberNavController())
 }

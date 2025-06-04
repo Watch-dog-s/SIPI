@@ -1,4 +1,4 @@
-version: '3.9'
+version: '4.4'
 services:
   postgres:
     image: postgres:15
@@ -104,3 +104,4 @@ volumes:
 networks:
   dairy-network:
     driver: bridge
+

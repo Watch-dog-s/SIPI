@@ -3,9 +3,7 @@ package com.example.electronic_diary.ViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.electronic_diary.api.dto.RegisterRequest
-import com.example.electronic_diary.api.remote.registerUser
-import com.example.electronic_diary.cache.TokenCache
-import com.example.electronic_diary.screens.Password_recovery_Screen
+import com.example.electronic_diary.api.remote.login.registerUser
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

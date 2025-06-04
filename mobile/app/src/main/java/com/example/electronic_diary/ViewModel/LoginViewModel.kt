@@ -3,12 +3,10 @@ package com.example.electronic_diary.ViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.electronic_diary.api.dto.LoginRequest
-import com.example.electronic_diary.api.remote.loginUser
-import com.example.electronic_diary.api.remote.registerUser
+import com.example.electronic_diary.api.remote.login.loginUser
 import com.example.electronic_diary.cache.TokenCache
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class LoginViewModel:ViewModel() {

@@ -86,43 +86,7 @@ fun Home_Screen(navController: NavHostController) {
                 }
             }
 
-            val n=Notification(A.Good,B.Mark)  //Вообще это будем из вью модели получать но пока так
-
-            notification(n)
-            notification(n)
-            Text(text = "День рождения у ученика ......")
-            Text(text = "Турнир по Доте ......")
-
-
-
-
-        }
-    }
-
-
-}
-
-
-
-
-
-@Composable
-fun notification(n:Notification){
-    Box(modifier=Modifier.fillMaxWidth()){
-        Row(modifier=Modifier.fillMaxWidth()) {
-            var icon= if(n.a==A.Good ) painterResource(id = R.drawable.notification) else  painterResource(id = R.drawable.notification)
-
-            Icon(
-                painter = icon,
-                contentDescription = "",
-                modifier = Modifier.size(40.dp)
-            )
-            Text(text = "Вы получили новую оценку")
         }
     }
 
 }
-
-
-
-
